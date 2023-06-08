@@ -1,0 +1,36 @@
+server:
+  port: 8081
+
+icon:  # 数组类型的数据
+  - name
+  - age
+  - id
+
+baseDir: c:\windows
+
+tempDir : ${baseDir}\temp
+
+
+# 创建类 用于封装下面的数据
+# 读取数据 由Spring帮我们加载数据到对象当中
+
+
+
+
+datasource:
+  driver: com.mysql.cj.jdbc.Driver
+  url: jdbc:mysql://localhost/gradem1
+  username: root
+  password: 600600
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306?serverTimezone=UTC # 时区配置 mysql5 和 mysql8的区别
+    username: root
+    password: 600600
+    type: com.alibaba.druid.pool.DruidDataSource # 数据源
+mybatis-plus:
+  global-config:
+    db-config:
+      table-prefix:   # 前缀
+

@@ -6,6 +6,7 @@ import com.example.springboot1.pojo.Login;
 import com.example.springboot1.pojo.User;
 import com.example.springboot1.pojo.air;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
@@ -13,6 +14,11 @@ import java.util.*;
 @CrossOrigin
 @RestController  // 前后端分离的技术
 public class contorl {
+
+
+
+    @Value("${icon[1]}")
+    private String iocns ;
     @Autowired
     private AirMapper airMapper2;
     @Autowired
@@ -21,6 +27,11 @@ public class contorl {
     private login1 login;
     @Autowired
     private air use2;
+    @RequestMapping
+    private String getIocns(){
+        return iocns;
+    }
+
     @RequestMapping("/air/findAll")
     public List findAll(){
         List<User> users = userMapper.selectAllAirById();

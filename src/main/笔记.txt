@@ -1,0 +1,56 @@
+
+1 springboot引导类
+
+
+内嵌的tomcat tomcat的执行过程抽取成tomcat对象交给 SpringBoot容器中管理
+     关闭tomcat内嵌的服务器
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                </exclusion>
+            </exclusions>
+                跟换Springboot内嵌的服务器
+                <dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-jetty</artifactId>
+                </dependency>
+
+
+tomcat内置的服务器:
+    tomcat   apache出品 粉丝多 运用广
+    jetty    轻量级   负载低
+    undertow   勉强 负载 > tomcat
+
+
+
+默认配置文件 .properties
+
+Spring-Boot配置方式 : yaml方式  yml(主流)方式  properties
+优先级  properties > yml > yaml
+
+配置文件 :Setting ->  Project Structure -> Facets
+选中对应项目 / 工程
+Customize  Spring Boot
+选中配置文件
+1.YAML 一种数据序列化格式
+2.同级属性 数据用 - 分割
+
+数据封装
+  @Component
+  // 指定加载的数据
+  @ConfigurationProperties(prefix = "datasource") // 前缀
+
+
+springboot 整合 mybatis :
+1 需要导入对应的 start坐标
+2 spring:
+    datasource:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306
+      username: root
+      password: 600600
+
+3 找到对应的映射类  加上 @Mapper 注解
+
+springboot 整合第三方技术 : 导入对应的 starter 在yml文件中做相关的配置
